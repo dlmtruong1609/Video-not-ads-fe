@@ -38,11 +38,12 @@ export default {
       urls: [],
       busy: false,
       src: '',
-      host: 'http://localhost:3000' || 'https://api-video.trustgroup.asia'
+      host: process.env.VUE_APP_HOST_API
     }
   },
   methods: {
     async onSearch() {
+      console.log(process.env.VUE_APP_HOST_API);
       this.busy = true
       try {
         var config = {
