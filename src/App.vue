@@ -2,9 +2,9 @@
   <div class="container">
     <div style="width: 100%;">
       <video-player :src="src" />
-      <b-form inline>
+      <b-form inline  v-on:submit.prevent="onSearch">
         <h3>Nhập tên phim và tập phim</h3>
-        <b-form-input style="width: 50%; margin: auto;" placeholder="Ví dụ: Conan tập 1000, Onepice tập 200,..." v-if="!busy" v-model="keyword" type="text"></b-form-input>
+        <b-form-input required style="width: 50%; margin: auto;" placeholder="Ví dụ: Conan tập 1000, Onepice tập 200,..." v-if="!busy" v-model="keyword" type="text"></b-form-input>
         <div v-if="urls.length > 0">
         <span v-for="(url, index) in urls" :key="url+index">
           <b-badge style="color: black; cursor: pointer;font-size: 20px" class="mt-2 mr-3" variant="info" @click="src = url">Link {{ index + 1}}</b-badge>
@@ -37,7 +37,8 @@ export default {
       keyword: null,
       urls: [],
       busy: false,
-      src: ''
+      src: '',
+      host: 'http://localhost:3000' || 'https://api-video.trustgroup.asia'
     }
   },
   methods: {
@@ -46,7 +47,7 @@ export default {
       try {
         var config = {
           method: 'get',
-          url: `https://api-video.trustgroup.asia/xemphim?keyword=${this.keyword}`,
+          url: `${this.host}/xemphim?keyword=${this.keyword}`,
           headers: { }
         };
 
