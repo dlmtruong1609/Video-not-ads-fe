@@ -46,7 +46,7 @@ export default {
       try {
         var config = {
           method: 'get',
-          url: `http://localhost:3000/xemphim?keyword=${this.keyword}`,
+          url: `https://api-video.trustland.asia/xemphim?keyword=${this.keyword}`,
           headers: { }
         };
 
