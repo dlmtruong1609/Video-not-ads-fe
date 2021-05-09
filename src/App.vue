@@ -1,11 +1,16 @@
 <template>
   <div class="container">
-    <div>
+    <div style="width: 100%;">
       <video-player :src="src" />
-      <h1 class="mt-4">Xem phim không quảng cáo</h1>
-      <h1>Nhập tên phim và tập phim</h1>
-      <p>Ví dụ: Conan tập 1000, Onepice tập 200,...</p>
-      <b-form-input v-if="!busy" v-model="keyword" type="text"></b-form-input>
+      <b-form inline>
+        <h3>Nhập tên phim và tập phim</h3>
+        <b-form-input style="width: 50%; margin: auto;" placeholder="Ví dụ: Conan tập 1000, Onepice tập 200,..." v-if="!busy" v-model="keyword" type="text"></b-form-input>
+        <div v-if="urls.length > 0">
+        <span v-for="(url, index) in urls" :key="url+index">
+          <b-badge style="color: black; cursor: pointer;font-size: 20px" class="mt-2 mr-3" variant="info" @click="src = url">Link {{ index + 1}}</b-badge>
+        </span>
+        </div>
+      </b-form>
        <b-overlay
         :show="busy"
         rounded
@@ -18,11 +23,6 @@
       </b-overlay>
      
      <div class="mt-3" v-if="busy">Chờ 1 xíu nha, mình đang kiếm cho bạn đây</div>
-     <div v-if="urls.length > 0">
-       <span v-for="(url, index) in urls" :key="index">
-        <b-badge style="color: black; cursor: pointer;font-size: 20px" class="mt-5 mr-3" variant="info" @click="src = url">Link {{ index + 1}}</b-badge>
-       </span>
-     </div>
     </div>
   </div>
 </template>
@@ -52,7 +52,7 @@ export default {
 
         const response = await axios(config)
         this.urls = response.data.urls
-        console.log(this.urls.length);
+        console.log(this.urls);
         this.busy = false
       } catch (error) {
         console.log(error);

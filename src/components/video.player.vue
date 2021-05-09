@@ -40,6 +40,7 @@ export default {
   watch: {
     src() {
       if (this.src && this.type) {
+        this.sources = []
         this.sources.push({
           src: this.src,
           type: this.type,
