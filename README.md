@@ -1,24 +1,18 @@
-# video-not-ads
+# Video Not Ads UI
 
-## Project setup
-```
-yarn install
-```
+This is a video crawler application
+## Demo
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
+Link: https://video.trustgroup.asia
 
-### Compiles and minifies for production
-```
-yarn build
-```
+## API crawl video
 
-### Lints and fixes files
-```
-yarn lint
-```
+Link: https://github.com/dlmtruong1609/Api-crawl-video
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## Run code
+
+1. yarn install
+2. yarn serve
+
+# Contact
+Email: dlmtruong1609@gmail.com
