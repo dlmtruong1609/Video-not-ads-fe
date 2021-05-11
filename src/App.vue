@@ -1,6 +1,6 @@
 <template>
 <div class="bg-dark">
-  <div class="container mt-5">
+  <div class="container pt-5">
     <div style="width: 100%">
       <video-player :src="src" />
        <h3 style="display: flex; justify-content: space-around;color: white" class="mt-3">
@@ -98,6 +98,7 @@ export default {
         this.videos = response.data;
         console.log(this.videos);
         this.busy = false;
+        this.activeIndex = -1
       } catch (error) {
         console.log(error);
         this.busy = false;
