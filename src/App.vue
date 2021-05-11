@@ -38,7 +38,7 @@
       </div>
       <div
       class="mt-4"
-        style="display: flex; flex-wrap: wrap; justify-content: space-around"
+        style="display: flex; flex-wrap: wrap; justify-content: space-between;"
       >
         <div v-for="(video, index) in videos" :key="index">
           <div class="card movie_card">
