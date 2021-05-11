@@ -1,6 +1,9 @@
 <template>
   <div>
-    <videojs :options="videoOptions" :sources="sources" />
+    <videojs
+      :options="videoOptions"
+      :sources="sources"
+    />
   </div>
 </template>
 

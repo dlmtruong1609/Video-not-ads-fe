@@ -5,15 +5,15 @@
 </template>
 
 <script>
-import videojs from 'video.js'
+import videojs from "video.js";
 
 export default {
-  name: 'VideoPlayer',
+  name: "VideoPlayer",
   props: {
     options: {
       type: Object,
       default() {
-        return {}
+        return {};
       },
     },
 
@@ -27,21 +27,21 @@ export default {
     return {
       player: null,
       key: false,
-    }
+    };
   },
 
   watch: {
     sources(val) {
-      if (val[0]?.src) this.player.src(val)
+      if (val[0].src) this.player.src(val);
     },
   },
 
   mounted() {
-    this.initPlayer()
+    this.initPlayer();
   },
 
   beforeDestroy() {
-    this.destroy()
+    this.destroy();
   },
 
   methods: {
@@ -49,24 +49,24 @@ export default {
       const options = {
         ...this.options,
         sources: this.sources,
-      }
+      };
 
       this.player = videojs(
         this.$refs.videoPlayer,
         options,
         function onPlayerReady() {}
-      )
+      );
     },
 
     destroy() {
       if (this.player) {
-        this.player.dispose()
+        this.player.dispose();
       }
     },
 
     async sleep(milliseconds) {
-      await new Promise((resolve) => setTimeout(resolve, milliseconds)) // 3 sec
+      await new Promise((resolve) => setTimeout(resolve, milliseconds)); // 3 sec
     },
   },
-}
+};
 </script>
