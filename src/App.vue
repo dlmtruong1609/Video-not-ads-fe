@@ -19,7 +19,7 @@
         >
         </b-form-input>
         <template #append>
-          <div style="height: 100%; position: relative; cursor: pointer; font-size: 23px;" @click="onSearch">
+          <div style="height: 100%; position: relative; cursor: pointer; font-size: 23px; z-index:1000" @click="onSearch">
             <b-icon
               style="
                 position: absolute;
@@ -58,7 +58,7 @@
               ></span>
             </button>
             <div class="card-body">
-              <h5 class="card-title">{{ video.title }}</h5>
+              <h5 class="card-title">{{ video.title }} {{ video.episode ? `tập ${video.episode}` : ''}}</h5>
             </div>
           </div>
         </div>
